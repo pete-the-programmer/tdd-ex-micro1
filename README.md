@@ -8,6 +8,7 @@ Get the code:
 
     git clone https://github.com/pete-the-programmer/tdd-ex-micro1
 
+
 Start by testing simple, yet interesting behaviours, and progressively get more complex.
 
 For example:

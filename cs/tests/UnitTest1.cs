@@ -7,9 +7,10 @@ namespace TddExMicrotest.Tests
     public class UnitTest1
     {
         [TestMethod]
-        public void ThisTestFails()
+        public void ThisTestIsNotMicro()
         {
-            Assert.AreEqual(4, 0);
+            var x = Hangman.FromInternet(5);
+            Assert.AreEqual(6, x.NumberLetters);
         }
     }
 }
