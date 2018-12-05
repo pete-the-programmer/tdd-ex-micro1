@@ -45,7 +45,7 @@ namespace TddExMicrotest
         }
 
         public bool Guess(char letter){
-            if( Status != GameStatus.NotStarted || Status != GameStatus.Guessing) {
+            if( Status != GameStatus.NotStarted && Status != GameStatus.Guessing) {
                 throw new System.ApplicationException("Game not in state that can accept a guess.");
             }
             Status = GameStatus.Guessing;
