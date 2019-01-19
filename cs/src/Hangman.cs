@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace TddExMicrotest
 {
@@ -40,7 +41,9 @@ namespace TddExMicrotest
 
         public int NumberRightGuesses{
             get{
-                return this._letters.Where(x => x.Status == LetterStatus.GuessedCorrect).Count();
+                var letters = _word.ToCharArray();
+                var letterStatuses = letters.Select( i => _letters[(i - 'a')]);
+                return letterStatuses.Where(x => x.Status == LetterStatus.GuessedCorrect).Count();
             }
         }
 
