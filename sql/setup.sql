@@ -7,6 +7,10 @@
 -- 1. Execute to get started
 EXEC sp_configure 'clr enabled', 1;
 RECONFIGURE;
+EXEC master.dbo.sp_configure 'show advanced options', 1
+RECONFIGURE;
+EXEC master.dbo.sp_configure 'Ole Automation Procedures', 1;
+RECONFIGURE;  
 CREATE DATABASE hangman;
 GO
 ALTER DATABASE [hangman] SET TRUSTWORTHY ON;
