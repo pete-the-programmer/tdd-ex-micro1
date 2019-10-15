@@ -1,5 +1,9 @@
 ﻿module TddExMicrotest
 
+open System
+open Newtonsoft.Json.Linq
+
+
 type GameState = NotStarted | Guessing | Winner | Hanged
 type LetterStatus = NotGuessed | GuessedCorrect | GuessedIncorrect
 
@@ -9,6 +13,7 @@ type Letter = {
 }
 
 let DEATH_LIMIT = 11
+let private R = new Random()
 
 type Hangman = {
     word: string
@@ -22,6 +27,14 @@ let create word =
         state = NotStarted
         letters = Seq.init 26 (fun i -> {value = (char) (i + (int)'a'); status = NotGuessed})
     }
+
+let createFromInternet length =
+    let content = TheInternet.Get TheInternet.WORDS [|length|]
+    let words = JArray.Parse content
+    let index = R.Next (0, words.Count)
+    let word = words.[index].Value<string>("word")
+    create word
+
 
 let numberWrongGuesses game = 
     game.letters
