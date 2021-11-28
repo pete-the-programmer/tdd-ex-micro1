@@ -1,0 +1,1 @@
+from .Hangman import Hangman
